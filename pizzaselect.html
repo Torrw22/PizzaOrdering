@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Selection</title>
+ <style>
+body, h1, p {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffecd1; /* Light beige background */
+    color: #333; /* Dark text color */
+        }
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #85442b; /* Brownish title color */
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+select, input[type="radio"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #85442b; /* Brownish button color */
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #5e2f1f; /* Darker brown on hover */
+}
+
+</style>
+</head>
+<body>
+    <h1>Pizza Selection</h1>
+    <p>Please select your favorite pizza:</p>
+
+    <form action="{% url 'order_pizza' %}" method="POST">
+        {% csrf_token %}
+        <label>Pizza Type:</label>
+        <select id="pizza-type" name="pizza-type">
+            <option value="pepperoni">Pepperoni</option>
+            <option value="cheese">Cheese</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="supreme">Supreme</option>
+            <!-- Add more pizza options as needed -->
+        </select>
+
+        <br>
+
+        <label for="pizza-size">Pizza Size:</label>
+        <input type="radio" id="small" name="pizza-size" value="small">
+        <label for="small">Small</label>
+        <input type="radio" id="medium" name="pizza-size" value="medium">
+        <label for="medium">Medium</label>
+        <input type="radio" id="large" name="pizza-size" value="large">
+        <label for="large">Large</label>
+
+        <br>
+
+        <label for="pizza-crust">Pizza Crust:</label>
+        <input type="radio" id="thin-crust" name="pizza-crust" value="thin-crust">
+        <label for="thin-crust">Thin Crust</label>
+        <input type="radio" id="thick-crust" name="pizza-crust" value="thick-crust">
+        <label for="thick-crust">Thick Crust</label>
+
+        <br>
+
+        <input type="submit" value="Order Now"
+    </form>
+
+</body>
+</html>
